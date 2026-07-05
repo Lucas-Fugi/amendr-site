@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amendr — No lead gets left behind</title>
+  <meta name="description" content="Amendr answers your leads in under 60 seconds, ranks them by urgency, follows up relentlessly, and books appointments — so no lead ever gets left behind.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b11116'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='38' font-weight='900' fill='%23fff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+       ============================================================ */
+    :root {
+      --bg: #f4f4f5;
+      --bg-alt: #eaeaeb;
+      --surface: #ffffff;
+      --ink: #0c0c0d;
+      --body: #5d6168;
+      --faint: #8a8d93;
+      --accent: #b11116;
+      --accent-hover: #8e0e12;
+      --rose: #fbeaea;
+      --rose-border: #f0cfd1;
+      --line: #e4e3e3;
+      --line-strong: #d8d7d7;
+      --radius-card: 17px;
+      --shadow-card: 0 1px 2px rgba(12, 12, 13, 0.04), 0 10px 28px rgba(12, 12, 13, 0.05);
+      --shadow-card-hover: 0 2px 4px rgba(12, 12, 13, 0.05), 0 18px 44px rgba(12, 12, 13, 0.10);
+      --shadow-red: 0 8px 24px rgba(177, 17, 22, 0.28);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+    }
+
+    body {
+      font-family: 'Archivo', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--body);
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--rose); color: var(--accent); }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 96px 0; }
+
+    /* ============================================================
+       TYPE
+       ============================================================ */
+    h1 {
+      font-size: clamp(46px, 8.2vw, 98px);
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 0.98;
+      color: var(--ink);
+    }
+
+    h2 {
+      font-size: clamp(32px, 4.6vw, 54px);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.04;
+      color: var(--ink);
+    }
+
+    .kicker {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-head { max-width: 780px; margin-bottom: 56px; }
+    .section-head p { margin-top: 18px; font-size: 18px; }
+
+    .accent { color: var(--accent); }
+    strong { color: var(--ink); font-weight: 700; }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      padding: 15px 28px;
+      border-radius: 11px;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: var(--shadow-red);
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(177, 17, 22, 0.34);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line-strong);
+    }
+    .btn-ghost:hover {
+      background: var(--surface);
+      border-color: var(--line-strong);
+      transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(244, 244, 245, 0.7);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.25s ease, background 0.25s ease, backdrop-filter 0.25s ease;
+    }
+    .nav.scrolled {
+      background: rgba(244, 244, 245, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .wordmark {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .wordmark .dot { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links a:not(.btn) {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--body);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .nav-links a:not(.btn):hover { color: var(--ink); }
+    .nav-links .btn { padding: 11px 20px; font-size: 15px; }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero { padding: 84px 0 96px; }
+    .hero-inner { max-width: 900px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--rose);
+      border: 1px solid var(--rose-border);
+      color: var(--accent);
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      padding: 8px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .eyebrow .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.55; }
+    }
+
+    .hero-sub {
+      margin-top: 28px;
+      font-size: clamp(17px, 2.1vw, 20px);
+      max-width: 720px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .hero-note {
+      margin-top: 22px;
+      font-size: 14.5px;
+      color: var(--faint);
+      max-width: 620px;
+    }
+
+    .hero-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 72px;
+    }
+
+    /* ============================================================
+       CARDS
+       ============================================================ */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 30px 28px;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .card h3 {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .card p { font-size: 15.5px; }
+
+    .icon-box {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      background: var(--rose);
+      border: 1px solid var(--rose-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+    .icon-box svg { width: 23px; height: 23px; }
+
+    .card-featured {
+      border: 2px solid var(--accent);
+      box-shadow: 0 4px 14px rgba(177, 17, 22, 0.10), 0 14px 36px rgba(177, 17, 22, 0.12);
+    }
+    .card-featured:hover {
+      box-shadow: 0 6px 18px rgba(177, 17, 22, 0.14), 0 20px 48px rgba(177, 17, 22, 0.16);
+    }
+
+    .feature-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .mini-badge {
+      display: inline-block;
+      background: var(--rose);
+      border: 1px solid var(--rose-border);
+      color: var(--accent);
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+
+    /* ============================================================
+       SECTION BACKGROUNDS
+       ============================================================ */
+    .section-alt { background: var(--bg-alt); }
+
+    /* ============================================================
+       FUNNEL
+       ============================================================ */
+    .funnel {
+      display: grid;
+      grid-template-columns: 1fr 44px 1.25fr 44px 1fr;
+      align-items: stretch;
+      gap: 0;
+      margin-top: 8px;
+    }
+
+    .funnel-stage {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 30px 26px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .funnel-stage.muted { opacity: 0.62; }
+
+    .funnel-stage h3 {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .funnel-stage p { font-size: 15px; }
+
+    .funnel-stage.owned {
+      border: 2px solid var(--accent);
+      box-shadow: 0 4px 14px rgba(177, 17, 22, 0.10), 0 14px 36px rgba(177, 17, 22, 0.13);
+      padding: 36px 30px;
+    }
+
+    .owned-pill {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      padding: 6px 15px;
+      border-radius: 100px;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(177, 17, 22, 0.3);
+    }
+
+    .funnel-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--faint);
+    }
+    .funnel-arrow svg { width: 22px; height: 22px; }
+
+    /* ============================================================
+       FEATURES GRID
+       ============================================================ */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* ============================================================
+       STATS
+       ============================================================ */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stat-card { text-align: left; padding: 36px 30px; }
+
+    .stat-value {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .stat-num {
+      font-size: clamp(60px, 7.5vw, 88px);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-unit {
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+    .stat-label {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .stat-desc { font-size: 15px; }
+
+    .banner {
+      margin-top: 28px;
+      background: var(--rose);
+      border: 1px solid var(--rose-border);
+      color: var(--accent);
+      font-size: 16.5px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      padding: 20px 28px;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .sources {
+      margin-top: 18px;
+      font-size: 12.5px;
+      color: var(--faint);
+      text-align: center;
+    }
+
+    /* ============================================================
+       COMPARISON
+       ============================================================ */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .compare-copy h2 { margin-bottom: 18px; }
+    .compare-copy p { font-size: 18px; }
+
+    .compare-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .compare-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 19px 26px;
+      font-size: 15.5px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--line);
+    }
+    .compare-row:last-child { border-bottom: none; }
+
+    .compare-row.no {
+      color: var(--faint);
+      background: var(--bg);
+    }
+    .compare-row.yes { color: var(--ink); }
+
+    .compare-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: 800;
+    }
+    .compare-row.no .compare-icon {
+      background: var(--bg-alt);
+      color: var(--faint);
+    }
+    .compare-row.yes .compare-icon {
+      background: var(--rose);
+      border: 1px solid var(--rose-border);
+      color: var(--accent);
+    }
+    .compare-icon svg { width: 13px; height: 13px; }
+
+    /* ============================================================
+       FEELS LIKE
+       ============================================================ */
+    .feels-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .feel-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 26px 28px;
+    }
+    .feel-card .icon-box { margin-bottom: 0; }
+    .feel-card p {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .feel-card.highlight {
+      border: 2px solid var(--rose-border);
+      background: var(--rose);
+    }
+    .feel-card.highlight .icon-box {
+      background: var(--surface);
+      border-color: var(--rose-border);
+    }
+
+    /* ============================================================
+       FINAL CTA
+       ============================================================ */
+    .cta-section {
+      background: linear-gradient(180deg, var(--bg) 0%, #f7eded 55%, var(--rose) 100%);
+      padding: 110px 0 120px;
+    }
+
+    .cta-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 56px;
+    }
+    .cta-head p { margin-top: 18px; font-size: 18px; }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto 28px;
+    }
+    .trust-card {
+      text-align: center;
+      padding: 28px 22px;
+    }
+    .trust-card .icon-box { margin: 0 auto 16px; }
+    .trust-card h3 {
+      color: var(--accent);
+      font-size: 16.5px;
+      margin-bottom: 6px;
+    }
+    .trust-card p { font-size: 14.5px; }
+
+    .cta-info-bar {
+      max-width: 900px;
+      margin: 0 auto 64px;
+      background: var(--rose);
+      border: 1px solid var(--rose-border);
+      color: var(--accent);
+      font-size: 15.5px;
+      padding: 17px 26px;
+      border-radius: 14px;
+      text-align: center;
+    }
+    .cta-info-bar strong { color: var(--accent); font-weight: 800; }
+
+    .calendly-wrap {
+      max-width: 900px;
+      margin: 0 auto 72px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    /* ============================================================
+       LEAD FORM
+       ============================================================ */
+    .form-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .form-wrap > h3 {
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .lead-form {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 40px 36px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .field { margin-bottom: 18px; }
+    .field label {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 7px;
+      letter-spacing: -0.01em;
+    }
+    .field label .req { color: var(--accent); }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      font-family: inherit;
+      font-size: 15.5px;
+      color: var(--ink);
+      background: var(--bg);
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      padding: 13px 15px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+    .field textarea { resize: vertical; min-height: 100px; }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      background: var(--surface);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(177, 17, 22, 0.12);
+    }
+    .field input::placeholder,
+    .field textarea::placeholder { color: var(--faint); }
+
+    /* Honeypot — visually removed, invisible to humans */
+    .hp-field {
+      position: absolute !important;
+      left: -9999px !important;
+      top: -9999px !important;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .lead-form .btn { width: 100%; margin-top: 6px; }
+
+    .fine-print {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    .form-error {
+      display: none;
+      margin-top: 14px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .form-error.visible { display: block; }
+
+    .form-success {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 56px 40px;
+      text-align: center;
+    }
+    .form-success.visible { display: block; }
+    .form-success .success-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: var(--rose);
+      border: 1px solid var(--rose-border);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .form-success .success-icon svg { width: 28px; height: 28px; }
+    .form-success h3 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .form-success p { font-size: 16px; }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      background: var(--ink);
+      color: #9b9ea4;
+      padding: 72px 0 36px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .footer .wordmark { color: #fff; font-size: 26px; }
+    .footer .wordmark .dot { color: #ff6b6b; }
+    .footer-tagline {
+      margin-top: 16px;
+      font-size: 15px;
+      max-width: 340px;
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .footer-col a {
+      display: block;
+      color: #9b9ea4;
+      text-decoration: none;
+      font-size: 15px;
+      margin-bottom: 12px;
+      transition: color 0.15s ease;
+    }
+    .footer-col a:hover { color: #fff; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 32px;
+      font-size: 13.5px;
+      color: #7c7f85;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       REDUCED MOTION
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .eyebrow .pulse-dot { animation: none; }
+      .card, .btn { transition: none; }
+      .card:hover { transform: none; }
+      .btn-primary:hover, .btn-ghost:hover { transform: none; }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 960px) {
+      .hero-cards, .features-grid, .stats-grid, .trust-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .compare { grid-template-columns: 1fr; gap: 44px; }
+      .footer-top { grid-template-columns: 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 720px) {
+      section { padding: 72px 0; }
+      .hero { padding: 56px 0 72px; }
+      .cta-section { padding: 80px 0 90px; }
+
+      .nav-links a:not(.btn) { display: none; }
+
+      .hero-cards, .features-grid, .stats-grid, .trust-grid, .feels-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .funnel { grid-template-columns: 1fr; gap: 26px; }
+      .funnel-arrow { display: none; }
+
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .lead-form { padding: 30px 22px; }
+
+      .hero-ctas .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="wordmark">Amendr<span class="dot">.</span></a>
+      <div class="nav-links">
+        <a href="#system">The system</a>
+        <a href="#features">What you get</a>
+        <a href="#proof">The numbers</a>
+        <a href="#book" class="btn btn-primary">Book a call &rarr;</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="eyebrow reveal">
+          <span class="pulse-dot"></span>
+          Every missed lead is money you already paid for
+        </div>
+        <h1 class="reveal" style="--reveal-delay: 60ms;">No lead gets <span class="accent">left&nbsp;behind.</span></h1>
+        <p class="hero-sub reveal" style="--reveal-delay: 120ms;">
+          The average business takes <strong>47 hours</strong> to answer a new lead. By then it's gone —
+          <strong>78% of people hire whoever replies first.</strong> Amendr answers in under 60 seconds,
+          every time, so the job is yours before a competitor even opens the email.
+        </p>
+        <div class="hero-ctas reveal" style="--reveal-delay: 180ms;">
+          <a href="#book" class="btn btn-primary">Book a call &rarr;</a>
+          <a href="#system" class="btn btn-ghost">See how it works</a>
+        </div>
+        <p class="hero-note reveal" style="--reveal-delay: 240ms;">
+          No more catching a missed text at 9pm. No more wondering which leads slipped.
+          You're on the job — Amendr's already closing the gap.
+        </p>
+      </div>
+
+      <div class="hero-cards" data-stagger>
+        <div class="card reveal">
+          <div class="icon-box">
+            <!-- lightning bolt -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Be the first to answer — and win the job</h3>
+          <p>78% of customers hire the business that responds first. From now on, that's always you.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-box">
+            <!-- sliders / ranking bars -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="9" y2="18"/><circle cx="17" cy="12" r="2"/><circle cx="12" cy="18" r="2"/></svg>
+          </div>
+          <h3>Know exactly who to call back first</h3>
+          <p>Ready-to-buy leads rise to the top, tire-kickers sink. Your time goes where the money is.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-box">
+            <!-- calendar with checkmark -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 15.5 11.5 18 15.5 13.5"/></svg>
+          </div>
+          <h3>Open your calendar to booked jobs</h3>
+          <p>Qualified leads book themselves while you work — and while you sleep. You just show up.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       THE SYSTEM (FUNNEL)
+       ============================================================ -->
+  <section id="system">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Where the money leaks</span>
+        <h2>You paid for the lead. The middle is where you lose it.</h2>
+        <p>
+          You're good at the work and you close when you get in front of someone. The leak isn't your
+          skill — it's the hours between a lead coming in and you getting to it. That gap is where jobs
+          quietly go to the competitor who answered first. Amendr owns that gap so nothing slips
+          through it again.
+        </p>
+      </div>
+
+      <div class="funnel" data-stagger>
+        <div class="funnel-stage muted reveal">
+          <h3>Lead generation</h3>
+          <p>Ads, referrals, your site — leads come in.</p>
+        </div>
+        <div class="funnel-arrow reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg>
+        </div>
+        <div class="funnel-stage owned reveal">
+          <span class="owned-pill">Amendr owns this</span>
+          <h3>Respond &middot; Rank &middot; Follow up &middot; Book</h3>
+          <p>Every lead handled in seconds and pushed toward a booked appointment.</p>
+        </div>
+        <div class="funnel-arrow reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg>
+        </div>
+        <div class="funnel-stage muted reveal">
+          <h3>The sales conversation</h3>
+          <p>You show up to a warm, ready-to-talk lead.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHAT YOU GET (FEATURES)
+       ============================================================ -->
+  <section id="features" class="section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">What you actually get</span>
+        <h2>Stop chasing. Start showing up to closed deals.</h2>
+        <p>
+          No dashboards to babysit. No workflows to wire up. Amendr is the operator that runs your
+          middle of the funnel — so your day is jobs and family, not follow-up at midnight.
+        </p>
+      </div>
+
+      <div class="features-grid" data-stagger>
+        <div class="card reveal">
+          <div class="icon-box">
+            <!-- clock -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
+          </div>
+          <h3>You answer first. Every time.</h3>
+          <span class="mini-badge">Under 60 seconds, day or night</span>
+          <p>Responding within 5 minutes makes you up to 21x more likely to win that lead than waiting 30. Amendr replies the second a lead lands — so you're the first voice they hear, even when you're up a ladder.</p>
+        </div>
+
+        <div class="card card-featured reveal">
+          <span class="feature-tag">&#9733; The differentiator</span>
+          <div class="icon-box">
+            <!-- bar chart / ranking -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="14"/><line x1="12" y1="20" x2="12" y2="9"/><line x1="18" y1="20" x2="18" y2="4"/></svg>
+          </div>
+          <h3>Never waste an hour on the wrong lead again</h3>
+          <p>A few smart questions, and Amendr scores every lead by how ready they are to buy. The hot ones get pushed to the front of your day; the maybes get nurtured in the background. You spend your time where the money is — and feel it in your close rate.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon-box">
+            <!-- refresh / retry arrow -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          </div>
+          <h3>The follow-up you never have time to do</h3>
+          <p>80% of sales need five or more follow-ups, but 44% of businesses quit after one. Amendr is the one that keeps going — politely, on its own — until the lead books or clearly says no. That's the pile of deals you've been leaving on the table.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon-box">
+            <!-- calendar -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>A calendar that fills itself</h3>
+          <p>Qualified leads get walked straight to your booking link and pick a time themselves. No phone tag, no "let me check and get back to you." You open your phone to appointments, not to-dos.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon-box">
+            <!-- bell -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
+          <h3>Peace of mind, not more notifications</h3>
+          <p>You get pinged only when a lead is hot, replies, or books. Everything else runs silent. No more phantom-buzz anxiety that you missed something — because you didn't.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon-box">
+            <!-- bar chart / pipeline -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="16" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="12" y2="18"/></svg>
+          </div>
+          <h3>Finally know what your leads are worth</h3>
+          <p>See every lead's status at a glance — answered, ranked, booked, or won — and watch the money that used to leak out of the middle show up on your calendar instead.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       THE NUMBERS (STATS)
+       ============================================================ -->
+  <section id="proof">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">The cost of the gap</span>
+        <h2>The math nobody wants to look at.</h2>
+        <p>
+          This is what's happening to leads in the middle of the funnel right now — including the ones
+          you spent good money to get.
+        </p>
+      </div>
+
+      <div class="stats-grid" data-stagger>
+        <div class="card stat-card reveal">
+          <div class="stat-value">
+            <span class="stat-num" data-target="47">0</span>
+            <span class="stat-unit">hrs</span>
+          </div>
+          <div class="stat-label">Average time to answer a lead</div>
+          <p class="stat-desc">That's how long the typical business takes to reply. By then, most prospects have already hired someone else.</p>
+        </div>
+        <div class="card stat-card reveal">
+          <div class="stat-value">
+            <span class="stat-num" data-target="78">0</span>
+            <span class="stat-unit">%</span>
+          </div>
+          <div class="stat-label">Hire whoever responds first</div>
+          <p class="stat-desc">Speed isn't a nice-to-have. The first business to reply wins roughly four out of five deals.</p>
+        </div>
+        <div class="card stat-card reveal">
+          <div class="stat-value">
+            <span class="stat-num" data-target="44">0</span>
+            <span class="stat-unit">%</span>
+          </div>
+          <div class="stat-label">Quit after one follow-up</div>
+          <p class="stat-desc">Yet 80% of sales need five or more. The deals aren't gone — they're sitting in the follow-up nobody does.</p>
+        </div>
+      </div>
+
+      <div class="banner reveal">
+        Amendr flips all three in your favor — first to answer, relentless on follow-up, not a single lead unaccounted for.
+      </div>
+      <p class="sources reveal">
+        Sources: MIT lead-response study (Dr. James Oldroyd) via Harvard Business Review; industry sales follow-up research. Your results depend on lead volume and quality.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NOT A TOOL (COMPARISON)
+       ============================================================ -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="compare">
+        <div class="compare-copy reveal">
+          <span class="kicker">Why not just buy software?</span>
+          <h2>You don't want another dashboard. You want the outcome.</h2>
+          <p>
+            GoHighLevel, Zapier, and HubSpot hand you a box of parts and a steep learning curve.
+            Amendr isn't a toolkit you have to assemble — it's the system, already built and run for
+            your business, owning one painful result: no lead left behind.
+          </p>
+        </div>
+
+        <div class="compare-card reveal" style="--reveal-delay: 120ms;">
+          <div class="compare-row no">
+            <span class="compare-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+            </span>
+            A pile of features you configure yourself
+          </div>
+          <div class="compare-row yes">
+            <span class="compare-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12.5 10 18.5 20 6.5"/></svg>
+            </span>
+            A done-for-you system that owns the result
+          </div>
+          <div class="compare-row no">
+            <span class="compare-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+            </span>
+            Generic, built for "any" business
+          </div>
+          <div class="compare-row yes">
+            <span class="compare-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12.5 10 18.5 20 6.5"/></svg>
+            </span>
+            Pre-built for how your trade actually works
+          </div>
+          <div class="compare-row no">
+            <span class="compare-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+            </span>
+            You're accountable for the setup working
+          </div>
+          <div class="compare-row yes">
+            <span class="compare-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12.5 10 18.5 20 6.5"/></svg>
+            </span>
+            We're accountable for the numbers
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHAT IT FEELS LIKE
+       ============================================================ -->
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">What it feels like</span>
+        <h2>Imagine running your business like this.</h2>
+      </div>
+
+      <div class="feels-grid" data-stagger>
+        <div class="card feel-card reveal">
+          <div class="icon-box">
+            <!-- calendar -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <p>More booked jobs from the exact same leads</p>
+        </div>
+        <div class="card feel-card reveal">
+          <div class="icon-box">
+            <!-- clock -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
+          </div>
+          <p>Your evenings back — no more follow-up after dinner</p>
+        </div>
+        <div class="card feel-card highlight reveal">
+          <div class="icon-box">
+            <!-- checkmark -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12.5 10 18.5 20 6.5"/></svg>
+          </div>
+          <p>That nagging "did I forget a lead?" feeling — gone</p>
+        </div>
+        <div class="card feel-card reveal">
+          <div class="icon-box">
+            <!-- shield -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <p>Confidence that every lead is handled the same way, every time</p>
+        </div>
+      </div>
+
+      <div class="banner reveal">
+        While your competition is still typing a reply, your lead is already booked.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FINAL CTA
+       ============================================================ -->
+  <section id="book" class="cta-section">
+    <div class="container">
+      <div class="cta-head reveal">
+        <span class="kicker">Early access</span>
+        <h2>Stop leaving money on the table while you're on the job.</h2>
+        <p>
+          We're onboarding a small first group of HVAC shops. Get in early, lock founder pricing,
+          and build the system around how your trade actually runs.
+        </p>
+      </div>
+
+      <div class="trust-grid" data-stagger>
+        <div class="card trust-card reveal">
+          <div class="icon-box">
+            <!-- people -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Built in Colorado</h3>
+          <p>For local service owners who can't afford to miss a lead</p>
+        </div>
+        <div class="card trust-card reveal">
+          <div class="icon-box">
+            <!-- shield -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Priority onboarding</h3>
+          <p>Early clients get set up and supported first</p>
+        </div>
+        <div class="card trust-card reveal">
+          <div class="icon-box">
+            <!-- clock -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
+          </div>
+          <h3>Limited spots</h3>
+          <p>We're capping the first cohort on purpose</p>
+        </div>
+      </div>
+
+      <div class="cta-info-bar reveal">
+        <strong>Early access includes:</strong> priority onboarding, founder pricing, and a direct line to the team building it.
+      </div>
+
+      <!-- ======================================================
+           CALENDLY EMBED
+           Replace CALENDLY_URL with your Calendly event link
+           (e.g. https://calendly.com/yourname/intro-call)
+           ====================================================== -->
+      <div class="calendly-wrap reveal">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/fugi-amendr/15-minute-call" style="min-width:320px;height:700px;"></div>
+      </div>
+
+      <!-- ======================================================
+           FALLBACK LEAD FORM
+           ====================================================== -->
+      <div class="form-wrap reveal">
+        <h3>Not ready to book? Send us a note instead.</h3>
+
+        <form class="lead-form" id="leadForm" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-name">Name <span class="req">*</span></label>
+              <input type="text" id="f-name" name="name" placeholder="Your name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="(555) 555-5555" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="f-email">Email <span class="req">*</span></label>
+              <input type="email" id="f-email" name="email" placeholder="you@company.com" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="f-business">Business / trade</label>
+              <input type="text" id="f-business" name="business" placeholder="e.g. HVAC — Denver metro" autocomplete="organization">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-volume">Leads per month</label>
+            <select id="f-volume" name="leads_per_month">
+              <option value="" selected disabled>Select one</option>
+              <option>Under 25</option>
+              <option>25-75</option>
+              <option>75-200</option>
+              <option>200+</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="f-problem">What's your biggest lead problem right now?</label>
+            <textarea id="f-problem" name="problem" placeholder="Optional — tell us what's slipping through"></textarea>
+          </div>
+
+          <!-- Honeypot: bots fill this, humans never see it -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="f-website">Company website</label>
+            <input type="text" id="f-website" name="company_website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="submitBtn">Send it &rarr;</button>
+          <p class="form-error" id="formError">Something went wrong sending that. Give it another try, or email us directly.</p>
+          <p class="fine-print">No spam, ever. We'll reply within one business day.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12.5 10 18.5 20 6.5"/></svg>
+          </div>
+          <h3>You're in. Check your inbox.</h3>
+          <p>We just sent a confirmation to your email and we'll be in touch within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="#" class="wordmark">Amendr<span class="dot">.</span></a>
+          <p class="footer-tagline">The system that owns the middle of your funnel — so no lead ever gets left behind.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#system">The system</a>
+          <a href="#features">What it does</a>
+          <a href="#proof">The numbers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#book">Book a call</a>
+          <a href="#book">Early access</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Amendr. All rights reserved.</span>
+        <span>Built for service businesses that move fast.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ============================================================
+       CONFIG
+       ============================================================ */
+    // Form submissions POST here (e.g. a Google Apps Script web app URL)
+    const ENDPOINT = "https://script.google.com/macros/s/AKfycbxUlsqB5XTkGX58TORcC6aeTJVUry4MBdWllQ__7pRG6cNvgE_2AfHXHv2KX0z7Skyq_w/exec";
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ============================================================
+       FOOTER YEAR
+       ============================================================ */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ============================================================
+       STICKY NAV — border + blur on scroll
+       ============================================================ */
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ============================================================
+       SCROLL REVEAL — fade-up with stagger inside groups
+       ============================================================ */
+    // Stagger: children of any [data-stagger] group come in ~90ms apart
+    document.querySelectorAll('[data-stagger]').forEach(group => {
+      group.querySelectorAll('.reveal').forEach((el, i) => {
+        el.style.setProperty('--reveal-delay', (i * 90) + 'ms');
+      });
+    });
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    } else {
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    }
+
+    /* ============================================================
+       ANIMATED COUNTERS — 0 → target, ease-out, ~1.4s
+       ============================================================ */
+    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target, 10);
+      const duration = 1400;
+      let start = null;
+
+      function step(ts) {
+        if (start === null) start = ts;
+        const progress = Math.min((ts - start) / duration, 1);
+        el.textContent = Math.round(easeOutCubic(progress) * target);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    const counters = document.querySelectorAll('.stat-num');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      counters.forEach(el => { el.textContent = el.dataset.target; });
+    } else {
+      const counterObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+
+      counters.forEach(el => counterObserver.observe(el));
+    }
+
+    /* ============================================================
+       LEAD FORM
+       ============================================================ */
+    const form = document.getElementById('leadForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formError = document.getElementById('formError');
+    const formSuccess = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formError.classList.remove('visible');
+
+      // Native validation (novalidate lets us style/report it ourselves)
+      if (!form.reportValidity()) return;
+
+      // Honeypot: if a bot filled it, silently pretend success
+      if (form.company_website.value) {
+        form.style.display = 'none';
+        formSuccess.classList.add('visible');
+        return;
+      }
+
+      const data = {
+        name: form.name.value.trim(),
+        phone: form.phone.value.trim(),
+        email: form.email.value.trim(),
+        business: form.business.value.trim(),
+        leads_per_month: form.leads_per_month.value,
+        problem: form.problem.value.trim(),
+        source: 'amendr-site',
+        submitted_at: new Date().toISOString()
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      try {
+        await fetch(ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(data)
+        });
+        form.style.display = 'none';
+        formSuccess.classList.add('visible');
+      } catch (err) {
+        formError.classList.add('visible');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send it &rarr;';
+      }
+    });
+  </script>
+
+  <!-- Calendly widget loader -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
