@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop Losing Leads — Find Out Where Your Jobs Are Going | Amendr</title>
+  <meta name="description" content="The average business takes 47 hours to respond to a lead. By then it's gone. Find out exactly where your leads are going and how to fix it — free.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://amendr.com/stop-losing-leads.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Amendr">
+  <meta property="og:title" content="Stop Losing Leads — Find Out Where Your Jobs Are Going">
+  <meta property="og:description" content="The average business takes 47 hours to respond to a lead. By then it's gone. Find out exactly where your leads are going and how to fix it — free.">
+  <meta property="og:url" content="https://amendr.com/stop-losing-leads.html">
+  <meta property="og:image" content="https://amendr.com/amendr-full-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stop Losing Leads — Find Out Where Your Jobs Are Going">
+  <meta name="twitter:description" content="The average business takes 47 hours to respond to a lead. By then it's gone. Find out where your leads are going and how to fix it.">
+  <meta name="twitter:image" content="https://amendr.com/amendr-full-logo.png">
+
+  <link rel="icon" type="image/png" href="amendr-icon.png">
+  <link rel="apple-touch-icon" href="amendr-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- ============================================================
+       FAQ STRUCTURED DATA
+       Mirrors the visible FAQ section below. If you edit an answer
+       there, edit it here too — Google requires the two to match.
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why am I losing leads even though I'm getting plenty of them?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In most service businesses the loss happens after the lead arrives, not before. Three things account for nearly all of it: responding too slowly, following up once or not at all, and working leads in the order they came in instead of by urgency. Research from Drift puts the average business response time at about 47 hours, and buyer studies consistently show roughly 78% of customers hire whoever responds first — so a slow reply loses the job before quality, price, or reputation ever gets considered."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I find out my actual lead response time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Take last month's leads from every source, put them in one spreadsheet, and for each one record the timestamp it arrived and the timestamp of your first outbound contact. Use the median rather than the average, because a handful of instant replies will hide a lot of slow ones. Then submit your own web form on a Saturday evening from a phone number nobody at your company recognizes and time how long until something happens. That single test tells most owners more than the spreadsheet does."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it lead quality or my follow-up process?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can tell them apart with two numbers. If your median response time is over an hour, speed is your biggest problem. If your average number of contact attempts per lead is under three, follow-up is. Only when both of those are healthy and your set rate is still low do you have a genuine lead-quality issue — at which point the fix is changing where the leads come from, not working harder on the ones you get."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does it cost to fix a lead leak?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There are three realistic routes. A dedicated dispatcher or in-house CSR runs roughly $3,000 to $4,000 a month fully loaded and covers one shift. Building it yourself in a platform like GoHighLevel costs a modest monthly software fee plus weeks of configuration and permanent ownership of maintenance. A done-for-you service handles response, follow-up, and booking for a fraction of a dispatcher's cost and covers nights and weekends. The most expensive option is the one most owners default to: leaving the leak in place and buying more leads to compensate."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — mirrors index.html
+       ============================================================ */
+    :root {
+      --bg: #f4f4f5;
+      --bg-alt: #eaeaeb;
+      --surface: #ffffff;
+      --ink: #0c0c0d;
+      --body: #5d6168;
+      --faint: #8a8d93;
+      --accent: #b11116;
+      --accent-hover: #8e0e12;
+      --rose: #fbeaea;
+      --rose-border: #f0cfd1;
+      --line: #e4e3e3;
+      --line-strong: #d8d7d7;
+      --radius-card: 17px;
+      --shadow-card: 0 1px 2px rgba(12, 12, 13, 0.04), 0 10px 28px rgba(12, 12, 13, 0.05);
+      --shadow-card-hover: 0 2px 4px rgba(12, 12, 13, 0.05), 0 18px 44px rgba(12, 12, 13, 0.10);
+      --shadow-red: 0 8px 24px rgba(177, 17, 22, 0.28);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+    body {
+      font-family: 'Archivo', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--body);
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--rose); color: var(--accent); }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .narrow { max-width: 800px; margin: 0 auto; }
+
+    .kicker {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .accent { color: var(--accent); }
+    strong { color: var(--ink); font-weight: 700; }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      padding: 15px 28px;
+      border-radius: 11px;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-red); }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(177, 17, 22, 0.34);
+    }
+    .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); }
+    .btn-ghost:hover { background: var(--surface); transform: translateY(-1px); }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(244, 244, 245, 0.7);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.25s ease, background 0.25s ease, backdrop-filter 0.25s ease;
+    }
+    .nav.scrolled {
+      background: rgba(244, 244, 245, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: var(--line);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .brand { display: inline-flex; align-items: center; text-decoration: none; }
+    .brand-logo { height: 36px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a:not(.btn) {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--body);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .nav-links a:not(.btn):hover { color: var(--ink); }
+    .nav-links .btn { padding: 11px 20px; font-size: 15px; }
+
+    /* ============================================================
+       ARTICLE HEADER
+       ============================================================ */
+    .page-hero { padding: 72px 0 44px; }
+    .page-hero h1 {
+      font-size: clamp(36px, 5.6vw, 62px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+      color: var(--ink);
+    }
+    .page-hero .standfirst {
+      margin-top: 24px;
+      font-size: clamp(18px, 2.1vw, 21px);
+      line-height: 1.5;
+    }
+    .crumb {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--faint);
+      margin-bottom: 20px;
+    }
+    .crumb a { color: var(--faint); text-decoration: none; }
+    .crumb a:hover { color: var(--accent); }
+
+    /* ============================================================
+       ARTICLE BODY
+       ============================================================ */
+    .article { padding-bottom: 88px; }
+    .article h2 {
+      font-size: clamp(27px, 3.4vw, 37px);
+      font-weight: 900;
+      letter-spacing: -0.032em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin: 56px 0 18px;
+    }
+    .article h3 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 34px 0 10px;
+    }
+    .article p { margin-bottom: 20px; font-size: 17.5px; }
+    .article a { color: var(--accent); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--rose-border); }
+    .article a:hover { border-bottom-color: var(--accent); }
+    .article ul { margin: 0 0 22px; padding-left: 0; list-style: none; }
+    .article ul li {
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 12px;
+      font-size: 17.5px;
+    }
+    .article ul li::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 11px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .lede { font-size: 19px; }
+
+    /* ============================================================
+       INLINE COMPONENTS
+       ============================================================ */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 36px 0 40px;
+    }
+    .stat-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 26px 24px;
+    }
+    .stat-box .num {
+      display: block;
+      font-size: 44px;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .stat-box .lbl {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.015em;
+      line-height: 1.35;
+    }
+    .stat-box .src { display: block; margin-top: 8px; font-size: 12.5px; color: var(--faint); font-weight: 500; }
+
+    .callout {
+      background: var(--rose);
+      border: 1px solid var(--rose-border);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin: 32px 0 36px;
+      color: var(--accent);
+      font-size: 17.5px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .note-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 30px 30px 12px;
+      margin: 32px 0 36px;
+    }
+    .note-card h3 { margin-top: 0; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 32px 0 38px;
+    }
+    .opt {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 28px 26px;
+    }
+    .opt.on { border: 2px solid var(--accent); }
+    .opt h3 { margin: 0 0 10px; font-size: 18px; }
+    .opt p { font-size: 15.5px; margin-bottom: 0; }
+    .opt .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 12px;
+    }
+    .opt.on .tag { color: var(--accent); }
+
+    .sources {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--faint);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       FAQ
+       ============================================================ */
+    .faq-wrap { background: var(--bg-alt); padding: 80px 0; }
+    .faq-wrap h2 {
+      font-size: clamp(28px, 3.6vw, 40px);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      margin-bottom: 32px;
+    }
+    .faq-list { display: grid; gap: 14px; }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .faq-item[open] { border-color: var(--line-strong); box-shadow: var(--shadow-card-hover); }
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 24px 28px;
+      cursor: pointer;
+      list-style: none;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--ink);
+      transition: color 0.15s ease;
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q:hover { color: var(--accent); }
+    .faq-q:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--rose);
+      border: 1px solid var(--rose-border);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
+    }
+    .faq-icon svg { width: 14px; height: 14px; }
+    .faq-item[open] .faq-icon { transform: rotate(180deg); }
+    .faq-a { padding: 0 28px 26px; font-size: 16.5px; }
+
+    /* ============================================================
+       CTA
+       ============================================================ */
+    .cta-section {
+      background: linear-gradient(180deg, var(--bg) 0%, #f7eded 55%, var(--rose) 100%);
+      padding: 96px 0 104px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(30px, 4.2vw, 48px);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      color: var(--ink);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .cta-section p {
+      margin: 18px auto 32px;
+      max-width: 620px;
+      font-size: 18px;
+    }
+    .cta-note { margin-top: 22px; font-size: 14.5px; color: var(--faint); }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer { background: var(--ink); color: #9b9ea4; padding: 72px 0 36px; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    }
+    .footer-logo { height: 28px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .footer-tagline { margin-top: 16px; font-size: 15px; max-width: 340px; line-height: 1.6; }
+    .footer-col h4 {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .footer-col a {
+      display: block;
+      color: #9b9ea4;
+      text-decoration: none;
+      font-size: 15px;
+      margin-bottom: 12px;
+      transition: color 0.15s ease;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 32px;
+      font-size: 13.5px;
+      color: #7c7f85;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .btn { transition: none; }
+      .btn-primary:hover, .btn-ghost:hover { transform: none; }
+      .faq-item, .faq-icon { transition: none; }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 960px) {
+      .footer-top { grid-template-columns: 1fr; gap: 36px; }
+    }
+    @media (max-width: 720px) {
+      .nav-links a:not(.btn) { display: none; }
+      .page-hero { padding: 48px 0 32px; }
+      .article h2 { margin-top: 44px; }
+      .stat-strip, .split { grid-template-columns: 1fr; }
+      .faq-wrap { padding: 64px 0; }
+      .faq-q { padding: 20px 22px; font-size: 16.5px; gap: 16px; }
+      .faq-a { padding: 0 22px 22px; font-size: 16px; }
+      .cta-section { padding: 76px 0 84px; }
+      .cta-section .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="/" class="brand">
+        <img src="amendr-full-logo.png" alt="Amendr" class="brand-logo" width="2048" height="1024">
+      </a>
+      <div class="nav-links">
+        <a href="/#system">The system</a>
+        <a href="/#features">What you get</a>
+        <a href="/#proof">The numbers</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#book" class="btn btn-primary">See what you're missing &rarr;</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="page-hero">
+    <div class="container narrow">
+      <p class="crumb reveal"><a href="/">Amendr</a> &rsaquo; Where your leads are going</p>
+      <h1 class="reveal" style="--reveal-delay: 60ms;">You're paying for leads. Here's where they're actually going.</h1>
+      <p class="standfirst reveal" style="--reveal-delay: 120ms;">
+        The gap between what your lead count says you should be making and what you're actually making has
+        a specific location. It's usually findable in about thirty minutes.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       ARTICLE
+       ============================================================ -->
+  <article class="article">
+    <div class="container narrow">
+
+      <p class="lede">
+        The ads are running. Google Local Services is charging you. Angi sends leads, the website form
+        works, the referrals keep coming. You can scroll through your inbox and see them arriving. And yet
+        the revenue at the end of the month doesn't look anything like what that volume should produce.
+      </p>
+
+      <p>
+        The reflex is to blame the leads. They're tire-kickers, they're price shoppers, Angi's selling the
+        same name to four companies. Some of that is true — every business gets junk leads. But junk leads
+        aren't what creates the gap you're feeling, because junk leads were never going to convert either
+        way. <strong>The gap comes from the good leads that got handled badly.</strong> And that happens
+        entirely after the lead arrives, in a stretch of the process most owners have never actually
+        looked at.
+      </p>
+
+      <h2>The three places leads die</h2>
+
+      <p>
+        In practice, nearly all of it is one of three failures. They're not exotic, and none of them are
+        about how good you are at the work.
+      </p>
+
+      <h3>1. Slow response</h3>
+      <p>
+        Research from Drift, which audited inbound response times across hundreds of companies, found the
+        average business takes roughly <strong>47 hours</strong> to reply to a new lead. Buyer studies
+        consistently show about <strong>78% of customers hire whoever gets back to them first</strong>. And
+        the MIT study led by Dr. James Oldroyd, published in <em>Harvard Business Review</em>, found that
+        replying within five minutes made a lead <strong>21 times more likely to qualify</strong> than
+        replying at the 30-minute mark. Put those together and the picture is unforgiving: by the time you
+        return the call that evening, the decision was made hours ago by someone who answered faster. You
+        never got to compete.
+      </p>
+
+      <h3>2. No follow-up</h3>
+      <p>
+        One call, a voicemail, and then nothing. Research compiled by Marketing Donut found that
+        <strong>80% of sales require five or more follow-ups</strong>, while <strong>44% of salespeople
+        give up after one</strong>. Almost none of your unconverted leads told you no — they just went
+        quiet, and quiet got treated as an answer. Those are unfinished conversations sitting in a folder,
+        and most of them are still winnable.
+      </p>
+
+      <h3>3. No prioritization</h3>
+      <p>
+        This one is the least discussed and often the most expensive. Leads arrive in the order they arrive,
+        which is random with respect to how much they're worth. So you spend thirty minutes on the phone
+        with someone comparing prices for a job they'll do next spring, and while you're on that call, a
+        homeowner with a dead system goes to voicemail and calls the next company.
+      </p>
+      <p>
+        The cost isn't only the missed call. It's that your best available hour went to your worst
+        available lead — and you had no way to know, because nothing in your inbox distinguishes an
+        emergency from an idle question.
+      </p>
+
+      <div class="callout reveal">
+        Three failures, one shared trait: every one of them happens to leads you already paid for.
+      </div>
+
+      <h2>How to diagnose your lead leak</h2>
+
+      <p>
+        You can do this yourself this week, without buying anything. It takes about half an hour and it
+        will tell you which of the three is actually costing you money — because guessing wrong here means
+        fixing the wrong thing.
+      </p>
+
+      <div class="note-card reveal">
+        <h3>The thirty-minute audit</h3>
+        <ul>
+          <li>
+            <strong>Get last month's leads into one list.</strong> Every source — web forms, LSA, Angi,
+            call logs, the texts to your cell. Most owners have never seen all of them in one place, and
+            the count alone is usually a surprise.
+          </li>
+          <li>
+            <strong>Measure real response time.</strong> For each lead, note when it came in and when your
+            first outbound contact went out. Use the <strong>median</strong>, not the average — a few
+            instant replies will paper over a lot of slow ones. Then look at your ten worst.
+          </li>
+          <li>
+            <strong>Count attempts per lead.</strong> Be strict about it: one call plus a voicemail is one
+            attempt, not two. Most shops discover their average is somewhere between one and two.
+          </li>
+          <li>
+            <strong>Calculate your set rate.</strong> Leads in, appointments booked. Then appointments to
+            sold jobs. If a lot of leads never become appointments but most appointments close, your problem
+            is upstream of your sales ability entirely.
+          </li>
+          <li>
+            <strong>Mystery-shop yourself.</strong> Submit your own web form at 7pm on a Saturday from a
+            number nobody at your company recognizes. Time how long until anything happens. This takes five
+            minutes and is usually the most uncomfortable data point on the list.
+          </li>
+          <li>
+            <strong>Check the after-hours split.</strong> What percentage of last month's leads arrived
+            outside of 8-to-5, Monday to Friday? For most home-service businesses it's close to half — and
+            those are the ones sitting overnight.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Now read the results. <strong>Median response over an hour?</strong> Speed is your biggest lever,
+        and nothing else you fix will matter as much. <strong>Under three attempts per lead?</strong>
+        Follow-up is where your money is. <strong>Both healthy and the set rate is still bad?</strong> Then
+        you genuinely do have a lead-quality problem — and the fix is changing where leads come from, not
+        working the current ones harder. Either way you now know which conversation to have, which is more
+        than most owners in your position have.
+      </p>
+
+      <h2>How to fix it — with or without us</h2>
+
+      <p>
+        There are three real options. They all work. They cost very different amounts and demand very
+        different things from you.
+      </p>
+
+      <div class="split reveal">
+        <div class="opt">
+          <span class="tag">Option 1</span>
+          <h3>Hire a dedicated dispatcher</h3>
+          <p>
+            Roughly <strong>$3,000&ndash;$4,000 a month</strong> fully loaded. You get a real person with
+            judgment who can handle a complicated call. You also get one shift of coverage, vacation weeks,
+            turnover, and another employee to manage — and half your leads still arrive after they've gone
+            home.
+          </p>
+        </div>
+        <div class="opt">
+          <span class="tag">Option 2</span>
+          <h3>Build it yourself</h3>
+          <p>
+            GoHighLevel or similar runs a modest monthly fee, which is the cheap part. The expensive part is
+            weeks of configuration, writing every message, connecting every lead source, and owning it
+            forever — including noticing the silent Tuesday when a sequence stops firing. Good fit if
+            somebody on your team actually enjoys this work.
+          </p>
+        </div>
+        <div class="opt on">
+          <span class="tag">Option 3</span>
+          <h3>A done-for-you service</h3>
+          <p>
+            Response, qualification, ranking, follow-up, and booking handled for you at a fraction of a
+            dispatcher's cost, covering nights and weekends by default. The trade-off is honest: it isn't a
+            person on the phone for a complex conversation. It gets the lead answered, sorted, worked, and
+            booked — then hands you a warm customer. That's the job <a href="/">Amendr does</a>.
+          </p>
+        </div>
+        <div class="opt">
+          <span class="tag">Option 4</span>
+          <h3>Change nothing, buy more leads</h3>
+          <p>
+            The default choice, and the only genuinely bad one. More volume through a leaking process means
+            paying twice for the same problem — once for the lead, and again in the job that went to whoever
+            answered first.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Whichever route you take, do the audit first. Half an hour with last month's leads will tell you
+        more about your business than another month of ad spend, and it costs nothing but the willingness
+        to look at the number.
+      </p>
+
+      <p class="sources">
+        Sources: Drift Lead Response Report (average business response time); "The Short Life of Online
+        Sales Leads," Dr. James Oldroyd, Harvard Business Review (MIT lead-response study); Marketing Donut
+        sales follow-up research; industry buyer-response research. Staffing costs are typical U.S. ranges
+        and vary by market.
+      </p>
+
+    </div>
+  </article>
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section class="faq-wrap">
+    <div class="container narrow">
+      <h2 class="reveal">Questions about losing leads</h2>
+      <div class="faq-list" data-stagger>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            Why am I losing leads even though I'm getting plenty of them?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            In most service businesses the loss happens after the lead arrives, not before. Three things
+            account for nearly all of it: responding too slowly, following up once or not at all, and working
+            leads in the order they came in instead of by urgency. Research from Drift puts the average
+            business response time at about 47 hours, and buyer studies consistently show roughly 78% of
+            customers hire whoever responds first — so a slow reply loses the job before quality, price, or
+            reputation ever gets considered.
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            How do I find out my actual lead response time?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            Take last month's leads from every source, put them in one spreadsheet, and for each one record the
+            timestamp it arrived and the timestamp of your first outbound contact. Use the median rather than
+            the average, because a handful of instant replies will hide a lot of slow ones. Then submit your
+            own web form on a Saturday evening from a phone number nobody at your company recognizes and time
+            how long until something happens. That single test tells most owners more than the spreadsheet
+            does.
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            Is it lead quality or my follow-up process?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            You can tell them apart with two numbers. If your median response time is over an hour, speed is
+            your biggest problem. If your average number of contact attempts per lead is under three, follow-up
+            is. Only when both of those are healthy and your set rate is still low do you have a genuine
+            lead-quality issue — at which point the fix is changing where the leads come from, not working
+            harder on the ones you get.
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            What does it cost to fix a lead leak?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            There are three realistic routes. A dedicated dispatcher or in-house CSR runs roughly $3,000 to
+            $4,000 a month fully loaded and covers one shift. Building it yourself in a platform like
+            GoHighLevel costs a modest monthly software fee plus weeks of configuration and permanent ownership
+            of maintenance. A done-for-you service handles response, follow-up, and booking for a fraction of a
+            dispatcher's cost and covers nights and weekends. The most expensive option is the one most owners
+            default to: leaving the leak in place and buying more leads to compensate.
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA
+       ============================================================ -->
+  <section class="cta-section">
+    <div class="container">
+      <span class="kicker reveal">Free lead audit</span>
+      <h2 class="reveal" style="--reveal-delay: 60ms;">See what you're missing &mdash; free lead audit.</h2>
+      <p class="reveal" style="--reveal-delay: 120ms;">
+        Fifteen minutes on the phone and we'll run the audit with you: where your leads land, how long they
+        wait, how many got a second touch, and what the leak is worth in booked jobs.
+      </p>
+      <a href="/#book" class="btn btn-primary reveal" style="--reveal-delay: 180ms;">See what you're missing &rarr;</a>
+      <p class="cta-note reveal" style="--reveal-delay: 240ms;">You keep the findings either way. No software to install.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="/" class="brand">
+            <img src="amendr-full-logo.png" alt="Amendr" class="footer-logo" width="2048" height="1024">
+          </a>
+          <p class="footer-tagline">The system that owns the middle of your funnel — so no lead ever gets left behind.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="/#system">The system</a>
+          <a href="/#features">What it does</a>
+          <a href="/#proof">The numbers</a>
+          <a href="/#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Read</h4>
+          <a href="/hvac-lead-response.html">HVAC lead response</a>
+          <a href="/lead-follow-up-service.html">Lead follow-up for contractors</a>
+          <a href="/stop-losing-leads.html">Where your leads are going</a>
+          <a href="/#book">Book a call</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Amendr. All rights reserved.</span>
+        <span>Built for service businesses that move fast.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* Sticky nav — border + blur on scroll */
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* Scroll reveal — fade-up with stagger inside [data-stagger] groups */
+    document.querySelectorAll('[data-stagger]').forEach(group => {
+      group.querySelectorAll('.reveal').forEach((el, i) => {
+        el.style.setProperty('--reveal-delay', (i * 90) + 'ms');
+      });
+    });
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    } else {
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    }
+  </script>
+</body>
+</html>

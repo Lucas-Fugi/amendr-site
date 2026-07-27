@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Follow-Up Service for Contractors — Stop Losing Deals to Silence | Amendr</title>
+  <meta name="description" content="80% of sales need 5+ follow-ups but 44% of contractors quit after one. Amendr follows up automatically until every lead books or says no.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://amendr.com/lead-follow-up-service.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Amendr">
+  <meta property="og:title" content="Lead Follow-Up Service for Contractors — Stop Losing Deals to Silence">
+  <meta property="og:description" content="80% of sales need 5+ follow-ups but 44% of contractors quit after one. Amendr follows up automatically until every lead books or says no.">
+  <meta property="og:url" content="https://amendr.com/lead-follow-up-service.html">
+  <meta property="og:image" content="https://amendr.com/amendr-full-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lead Follow-Up Service for Contractors — Stop Losing Deals to Silence">
+  <meta name="twitter:description" content="80% of sales need 5+ follow-ups but 44% of contractors quit after one. Amendr follows up until every lead books or says no.">
+  <meta name="twitter:image" content="https://amendr.com/amendr-full-logo.png">
+
+  <link rel="icon" type="image/png" href="amendr-icon.png">
+  <link rel="apple-touch-icon" href="amendr-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- ============================================================
+       FAQ STRUCTURED DATA
+       Mirrors the visible FAQ section below. If you edit an answer
+       there, edit it here too — Google requires the two to match.
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many times should you follow up with a lead?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At least five times, and more if the job is large. Research compiled by Marketing Donut found that 80% of sales require five or more follow-ups after the first contact, while 44% of salespeople stop after a single attempt. That gap is where most contractor revenue quietly disappears — not in leads that said no, but in leads that were never contacted a second time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Isn't following up five times annoying?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It is when every message says the same thing. Five copies of \"just checking in\" reads as pestering because it asks the customer to do the work of restarting the conversation. Follow-up that references their actual job, spaces itself out sensibly, and gives them an easy way to book or decline reads as professional. In practice, homeowners more often apologize for not replying sooner than complain about being contacted."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long should you keep following up before giving up?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Until the lead books or gives you a clear no. Most quotes that go quiet aren't rejections — the customer is waiting on a spouse, an insurance adjuster, a payday, or the next time the problem gets bad enough. A lead that never answered either way should stay in a long, low-frequency sequence rather than being deleted. Contractors routinely book work from leads that sat silent for 30 to 90 days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can automated follow-up be done without sounding like a robot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, and the difference comes down to two things: whether the messages were written for your trade and your voice, and whether the sequence stops the moment a real person replies. Generic mass-blasted templates are what make automation obvious. Messages that mention the customer's actual situation, arrive at sensible hours, and hand off to a human at the right moment read exactly like a business that stays on top of its work."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — mirrors index.html
+       ============================================================ */
+    :root {
+      --bg: #f4f4f5;
+      --bg-alt: #eaeaeb;
+      --surface: #ffffff;
+      --ink: #0c0c0d;
+      --body: #5d6168;
+      --faint: #8a8d93;
+      --accent: #b11116;
+      --accent-hover: #8e0e12;
+      --rose: #fbeaea;
+      --rose-border: #f0cfd1;
+      --line: #e4e3e3;
+      --line-strong: #d8d7d7;
+      --radius-card: 17px;
+      --shadow-card: 0 1px 2px rgba(12, 12, 13, 0.04), 0 10px 28px rgba(12, 12, 13, 0.05);
+      --shadow-card-hover: 0 2px 4px rgba(12, 12, 13, 0.05), 0 18px 44px rgba(12, 12, 13, 0.10);
+      --shadow-red: 0 8px 24px rgba(177, 17, 22, 0.28);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+    body {
+      font-family: 'Archivo', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--body);
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--rose); color: var(--accent); }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .narrow { max-width: 800px; margin: 0 auto; }
+
+    .kicker {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .accent { color: var(--accent); }
+    strong { color: var(--ink); font-weight: 700; }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      padding: 15px 28px;
+      border-radius: 11px;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-red); }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(177, 17, 22, 0.34);
+    }
+    .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); }
+    .btn-ghost:hover { background: var(--surface); transform: translateY(-1px); }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(244, 244, 245, 0.7);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.25s ease, background 0.25s ease, backdrop-filter 0.25s ease;
+    }
+    .nav.scrolled {
+      background: rgba(244, 244, 245, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: var(--line);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .brand { display: inline-flex; align-items: center; text-decoration: none; }
+    .brand-logo { height: 36px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a:not(.btn) {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--body);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .nav-links a:not(.btn):hover { color: var(--ink); }
+    .nav-links .btn { padding: 11px 20px; font-size: 15px; }
+
+    /* ============================================================
+       ARTICLE HEADER
+       ============================================================ */
+    .page-hero { padding: 72px 0 44px; }
+    .page-hero h1 {
+      font-size: clamp(36px, 5.6vw, 62px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+      color: var(--ink);
+    }
+    .page-hero .standfirst {
+      margin-top: 24px;
+      font-size: clamp(18px, 2.1vw, 21px);
+      line-height: 1.5;
+    }
+    .crumb {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--faint);
+      margin-bottom: 20px;
+    }
+    .crumb a { color: var(--faint); text-decoration: none; }
+    .crumb a:hover { color: var(--accent); }
+
+    /* ============================================================
+       ARTICLE BODY
+       ============================================================ */
+    .article { padding-bottom: 88px; }
+    .article h2 {
+      font-size: clamp(27px, 3.4vw, 37px);
+      font-weight: 900;
+      letter-spacing: -0.032em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin: 56px 0 18px;
+    }
+    .article h3 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 34px 0 10px;
+    }
+    .article p { margin-bottom: 20px; font-size: 17.5px; }
+    .article a { color: var(--accent); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--rose-border); }
+    .article a:hover { border-bottom-color: var(--accent); }
+    .article ul { margin: 0 0 22px; padding-left: 0; list-style: none; }
+    .article ul li {
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 12px;
+      font-size: 17.5px;
+    }
+    .article ul li::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 11px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .lede { font-size: 19px; }
+
+    /* ============================================================
+       INLINE COMPONENTS
+       ============================================================ */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 36px 0 40px;
+    }
+    .stat-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 26px 24px;
+    }
+    .stat-box .num {
+      display: block;
+      font-size: 44px;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .stat-box .lbl {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.015em;
+      line-height: 1.35;
+    }
+    .stat-box .src { display: block; margin-top: 8px; font-size: 12.5px; color: var(--faint); font-weight: 500; }
+
+    .callout {
+      background: var(--rose);
+      border: 1px solid var(--rose-border);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin: 32px 0 36px;
+      color: var(--accent);
+      font-size: 17.5px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .note-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 30px 30px 12px;
+      margin: 32px 0 36px;
+    }
+    .note-card h3 { margin-top: 0; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 32px 0 38px;
+    }
+    .opt {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 28px 26px;
+    }
+    .opt.on { border: 2px solid var(--accent); }
+    .opt h3 { margin: 0 0 10px; font-size: 18px; }
+    .opt p { font-size: 15.5px; margin-bottom: 0; }
+    .opt .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 12px;
+    }
+    .opt.on .tag { color: var(--accent); }
+
+    .sources {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--faint);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       FAQ
+       ============================================================ */
+    .faq-wrap { background: var(--bg-alt); padding: 80px 0; }
+    .faq-wrap h2 {
+      font-size: clamp(28px, 3.6vw, 40px);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      margin-bottom: 32px;
+    }
+    .faq-list { display: grid; gap: 14px; }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .faq-item[open] { border-color: var(--line-strong); box-shadow: var(--shadow-card-hover); }
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 24px 28px;
+      cursor: pointer;
+      list-style: none;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--ink);
+      transition: color 0.15s ease;
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q:hover { color: var(--accent); }
+    .faq-q:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--rose);
+      border: 1px solid var(--rose-border);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
+    }
+    .faq-icon svg { width: 14px; height: 14px; }
+    .faq-item[open] .faq-icon { transform: rotate(180deg); }
+    .faq-a { padding: 0 28px 26px; font-size: 16.5px; }
+
+    /* ============================================================
+       CTA
+       ============================================================ */
+    .cta-section {
+      background: linear-gradient(180deg, var(--bg) 0%, #f7eded 55%, var(--rose) 100%);
+      padding: 96px 0 104px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(30px, 4.2vw, 48px);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      color: var(--ink);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .cta-section p {
+      margin: 18px auto 32px;
+      max-width: 620px;
+      font-size: 18px;
+    }
+    .cta-note { margin-top: 22px; font-size: 14.5px; color: var(--faint); }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer { background: var(--ink); color: #9b9ea4; padding: 72px 0 36px; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    }
+    .footer-logo { height: 28px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .footer-tagline { margin-top: 16px; font-size: 15px; max-width: 340px; line-height: 1.6; }
+    .footer-col h4 {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .footer-col a {
+      display: block;
+      color: #9b9ea4;
+      text-decoration: none;
+      font-size: 15px;
+      margin-bottom: 12px;
+      transition: color 0.15s ease;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 32px;
+      font-size: 13.5px;
+      color: #7c7f85;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .btn { transition: none; }
+      .btn-primary:hover, .btn-ghost:hover { transform: none; }
+      .faq-item, .faq-icon { transition: none; }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 960px) {
+      .footer-top { grid-template-columns: 1fr; gap: 36px; }
+    }
+    @media (max-width: 720px) {
+      .nav-links a:not(.btn) { display: none; }
+      .page-hero { padding: 48px 0 32px; }
+      .article h2 { margin-top: 44px; }
+      .stat-strip, .split { grid-template-columns: 1fr; }
+      .faq-wrap { padding: 64px 0; }
+      .faq-q { padding: 20px 22px; font-size: 16.5px; gap: 16px; }
+      .faq-a { padding: 0 22px 22px; font-size: 16px; }
+      .cta-section { padding: 76px 0 84px; }
+      .cta-section .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="/" class="brand">
+        <img src="amendr-full-logo.png" alt="Amendr" class="brand-logo" width="2048" height="1024">
+      </a>
+      <div class="nav-links">
+        <a href="/#system">The system</a>
+        <a href="/#features">What you get</a>
+        <a href="/#proof">The numbers</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#book" class="btn btn-primary">See what you're missing &rarr;</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="page-hero">
+    <div class="container narrow">
+      <p class="crumb reveal"><a href="/">Amendr</a> &rsaquo; Lead follow-up for contractors</p>
+      <h1 class="reveal" style="--reveal-delay: 60ms;">80% of contractor leads need follow-up. Most never get it.</h1>
+      <p class="standfirst reveal" style="--reveal-delay: 120ms;">
+        The deals you think you lost mostly aren't lost. They're sitting in a text thread nobody
+        picked back up.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       ARTICLE
+       ============================================================ -->
+  <article class="article">
+    <div class="container narrow">
+
+      <p class="lede">
+        Contractors are unusually good at the hard part. You can diagnose a system nobody else could figure
+        out, price it honestly, and do work that lasts fifteen years. Then a homeowner asks for a quote,
+        you send it Thursday night from the truck, and you never hear back — and that's where it ends. Not
+        because you're bad at sales. Because following up Friday, then Monday, then the week after requires
+        sitting at a desk thinking about it, and you were under a house.
+      </p>
+
+      <p>
+        The numbers on this are brutal and well documented. Research compiled by
+        <strong>Marketing Donut</strong> found that <strong>80% of sales require five or more follow-ups</strong>
+        after the initial contact, while <strong>44% of salespeople give up after just one</strong>. And that
+        44% describes people whose entire job is selling — a contractor doing quotes between service calls is
+        working with a fraction of that attention.
+      </p>
+
+      <div class="stat-strip reveal" data-stagger>
+        <div class="stat-box">
+          <span class="num">80<span style="font-size:24px;">%</span></span>
+          <span class="lbl">Of sales require five or more follow-ups</span>
+          <span class="src">Marketing Donut sales research</span>
+        </div>
+        <div class="stat-box">
+          <span class="num">44<span style="font-size:24px;">%</span></span>
+          <span class="lbl">Of salespeople quit after a single attempt</span>
+          <span class="src">Marketing Donut sales research</span>
+        </div>
+        <div class="stat-box">
+          <span class="num">47<span style="font-size:24px;">hrs</span></span>
+          <span class="lbl">Average time a business takes to answer a lead in the first place</span>
+          <span class="src">Drift Lead Response Report</span>
+        </div>
+      </div>
+
+      <h2>Why contractors lose leads to silence, not rejection</h2>
+
+      <p>
+        Go back through last quarter's quotes and count how many customers actually told you no. For most
+        shops: almost none. People rarely reject a contractor out loud — they just stop replying, and the
+        thread ends mid-sentence.
+      </p>
+
+      <p>
+        We read that silence as a decision. It usually isn't one. The homeowner got pulled into something
+        at work. They're waiting on their spouse to look at the number. The adjuster hasn't called back.
+        They meant to reply, felt bad that four days had passed, and then replying got awkward — so they
+        didn't. None of that is about you, your price, or your reviews. It's a conversation that ran out
+        of momentum.
+      </p>
+
+      <p>
+        Which explains the thing that sounds like a sales cliché until you see the mechanism: the contractor
+        who follows up a fourth or fifth time often wins the job. Not because persistence wore anyone down.
+        Because on the fourth message the timing finally lined up — the spouse agreed, the check cleared,
+        the unit started making the noise again. <strong>Follow-up isn't persuasion. It's
+        showing up again at a moment that works.</strong> You can't know which moment that is, so you cover
+        several.
+      </p>
+
+      <div class="callout reveal">
+        A lead that never said no isn't a lost lead. It's an unfinished conversation — and unfinished
+        conversations are the cheapest revenue in your business, because you already paid to start them.
+      </div>
+
+      <h2>What good follow-up actually looks like for a service business</h2>
+
+      <p>
+        "Just checking in" is the weakest message in the trades, and the one almost everybody sends. It
+        contains no new information and quietly puts the work back on the customer — they have to remember
+        the job, find the quote, and restart the thread themselves. Real follow-up carries its own weight.
+      </p>
+
+      <ul>
+        <li>
+          <strong>It's timed, not random.</strong> The first 48 hours do most of the work, then the spacing
+          stretches out — a couple of days, then a week, then longer. Five messages in five days is
+          pestering. Five messages over a month is diligence.
+        </li>
+        <li>
+          <strong>It's specific.</strong> "Following up on the condenser at the Maple Street property" beats
+          "checking in" every time — it hands the customer the context instead of asking for it.
+        </li>
+        <li>
+          <strong>It's multi-channel.</strong> Text gets opened within minutes and is right for nudges and
+          scheduling. Email carries the quote, the photos, the financing options. Using only one of the two
+          cuts your reach for no reason.
+        </li>
+        <li>
+          <strong>It adapts to temperature.</strong> Someone who replied twice and asked about pricing needs
+          a different cadence than someone who filled out a form and vanished. Treating both the same wastes
+          one and annoys the other.
+        </li>
+        <li>
+          <strong>It ends cleanly.</strong> Every lead should reach a definite state — booked, or a real no.
+          A pile of maybes is worse than a short list of nos — they keep occupying the part of your brain
+          that should be on the next job.
+        </li>
+      </ul>
+
+      <h2>Automated vs. manual follow-up</h2>
+
+      <p>
+        The usual argument for manual follow-up is that it's more personal. In practice the comparison
+        isn't personal-versus-automated. It's <strong>automated versus nothing</strong>, because manual
+        follow-up doesn't survive contact with a real week.
+      </p>
+
+      <p>
+        And it fails in the worst possible pattern. Follow-up is the first thing dropped when you get busy,
+        because nobody is standing in your kitchen waiting for it — the customer who didn't reply doesn't
+        complain about being forgotten. So it breaks down precisely during your busiest weeks, which are
+        also the weeks with the most leads, the highest urgency, and the biggest tickets. Manual follow-up
+        is strongest in February and gone in July.
+      </p>
+
+      <p>
+        Automation isn't better because it's smarter. It's better because it's indifferent — it sends the
+        day-9 message on day 9 whether the week went well or not, at the same quality as day 1, across
+        every lead at once. That consistency is the entire advantage.
+      </p>
+
+      <p>
+        Worth being honest about the failure mode, though: automation done badly is worse than none.
+        Generic blasts that ignore what the customer asked about, or sequences that keep firing after
+        someone replied, cost you goodwill. It hinges on messages written for your trade and a system that
+        shuts up the second a human enters the conversation.
+      </p>
+
+      <h2>How Amendr handles follow-up for you</h2>
+
+      <p>
+        Follow-up only works if it's attached to a fast first response, so both live in the same system.
+        A new lead gets a reply in under 60 seconds by text and email, gets qualified through a short
+        exchange, and then gets sorted by how ready they are. What happens next depends on which bucket
+        they land in — that's <a href="/">the middle of the funnel Amendr owns</a>, end to end.
+      </p>
+
+      <div class="split reveal">
+        <div class="opt on">
+          <span class="tag">Hot</span>
+          <h3>Replied, ready, high intent</h3>
+          <p>
+            Short window, tight cadence, one job: get an appointment on the calendar before their attention
+            moves. These are the leads where an hour matters.
+          </p>
+        </div>
+        <div class="opt">
+          <span class="tag">Warm</span>
+          <h3>Engaged, but the timing's off</h3>
+          <p>
+            Real interest, wrong week — waiting on a decision, a budget, or a season. Spaced-out touches that
+            keep you present without crowding them.
+          </p>
+        </div>
+        <div class="opt">
+          <span class="tag">Cold</span>
+          <h3>Went quiet mid-conversation</h3>
+          <p>
+            Longer intervals, lighter messages, each with an easy way back in. Plenty resurface weeks later
+            and book.
+          </p>
+        </div>
+        <div class="opt">
+          <span class="tag">No reply</span>
+          <h3>Never responded at all</h3>
+          <p>
+            A separate sequence across both channels, assuming the first message landed at a bad moment rather
+            than that the person doesn't exist.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Every sequence runs until the lead books or clearly declines, and every one stops the moment a
+        person replies. Qualified customers get scheduled straight onto your calendar — so what you see is
+        a booked appointment with someone who already knows your business name, not a list of numbers
+        you're supposed to call back tonight.
+      </p>
+
+      <p>
+        And none of it is software you operate — no dashboard, no sequence to build, no reminder to ignore.
+        A follow-up system that depends on the owner having a good week is the follow-up system you have
+        right now.
+      </p>
+
+      <p class="sources">
+        Sources: Marketing Donut sales follow-up research (80% of sales require five or more follow-ups;
+        44% of salespeople stop after one); Drift Lead Response Report; "The Short Life of Online Sales
+        Leads," Dr. James Oldroyd, Harvard Business Review. Results vary with lead volume and quality.
+      </p>
+
+    </div>
+  </article>
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section class="faq-wrap">
+    <div class="container narrow">
+      <h2 class="reveal">Questions contractors ask about follow-up</h2>
+      <div class="faq-list" data-stagger>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            How many times should you follow up with a lead?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            At least five times, and more if the job is large. Research compiled by Marketing Donut found that
+            80% of sales require five or more follow-ups after the first contact, while 44% of salespeople stop
+            after a single attempt. That gap is where most contractor revenue quietly disappears — not in leads
+            that said no, but in leads that were never contacted a second time.
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            Isn't following up five times annoying?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            It is when every message says the same thing. Five copies of "just checking in" reads as pestering
+            because it asks the customer to do the work of restarting the conversation. Follow-up that
+            references their actual job, spaces itself out sensibly, and gives them an easy way to book or
+            decline reads as professional. In practice, homeowners more often apologize for not replying sooner
+            than complain about being contacted.
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            How long should you keep following up before giving up?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            Until the lead books or gives you a clear no. Most quotes that go quiet aren't rejections — the
+            customer is waiting on a spouse, an insurance adjuster, a payday, or the next time the problem gets
+            bad enough. A lead that never answered either way should stay in a long, low-frequency sequence
+            rather than being deleted. Contractors routinely book work from leads that sat silent for 30 to 90
+            days.
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            Can automated follow-up be done without sounding like a robot?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            Yes, and the difference comes down to two things: whether the messages were written for your trade
+            and your voice, and whether the sequence stops the moment a real person replies. Generic
+            mass-blasted templates are what make automation obvious. Messages that mention the customer's actual
+            situation, arrive at sensible hours, and hand off to a human at the right moment read exactly like a
+            business that stays on top of its work.
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA
+       ============================================================ -->
+  <section class="cta-section">
+    <div class="container">
+      <span class="kicker reveal">Free lead audit</span>
+      <h2 class="reveal" style="--reveal-delay: 60ms;">See what you're missing.</h2>
+      <p class="reveal" style="--reveal-delay: 120ms;">
+        Fifteen minutes. We'll look at the quotes that went quiet last month and count what's still sitting
+        there, unfinished and winnable.
+      </p>
+      <a href="/#book" class="btn btn-primary reveal" style="--reveal-delay: 180ms;">See what you're missing &rarr;</a>
+      <p class="cta-note reveal" style="--reveal-delay: 240ms;">No software to install. Nothing changes about how you run jobs.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="/" class="brand">
+            <img src="amendr-full-logo.png" alt="Amendr" class="footer-logo" width="2048" height="1024">
+          </a>
+          <p class="footer-tagline">The system that owns the middle of your funnel — so no lead ever gets left behind.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="/#system">The system</a>
+          <a href="/#features">What it does</a>
+          <a href="/#proof">The numbers</a>
+          <a href="/#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Read</h4>
+          <a href="/hvac-lead-response.html">HVAC lead response</a>
+          <a href="/lead-follow-up-service.html">Lead follow-up for contractors</a>
+          <a href="/stop-losing-leads.html">Where your leads are going</a>
+          <a href="/#book">Book a call</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Amendr. All rights reserved.</span>
+        <span>Built for service businesses that move fast.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* Sticky nav — border + blur on scroll */
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* Scroll reveal — fade-up with stagger inside [data-stagger] groups */
+    document.querySelectorAll('[data-stagger]').forEach(group => {
+      group.querySelectorAll('.reveal').forEach((el, i) => {
+        el.style.setProperty('--reveal-delay', (i * 90) + 'ms');
+      });
+    });
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    } else {
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    }
+  </script>
+</body>
+</html>
