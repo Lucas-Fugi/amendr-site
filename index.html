@@ -727,6 +727,36 @@
     }
     .trust-card p { font-size: 14.5px; }
 
+    /* compact variant — icon + one bold line, used above the Calendly embed */
+    .trust-grid.compact { margin-bottom: 56px; }
+    .trust-card.compact {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-align: left;
+      padding: 18px 20px;
+    }
+    .trust-card.compact .icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      margin: 0;
+    }
+    .trust-card.compact .icon-box svg { width: 18px; height: 18px; }
+    .trust-card.compact p {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+
+    .cta-final-btn {
+      max-width: 900px;
+      margin: 0 auto 64px;
+      text-align: center;
+    }
+
     .cta-info-bar {
       max-width: 900px;
       margin: 0 auto 64px;
@@ -1009,7 +1039,7 @@
         <a href="#features">What you get</a>
         <a href="#proof">The numbers</a>
         <a href="#faq">FAQ</a>
-        <a href="#book" class="btn btn-primary">Book a call &rarr;</a>
+        <a href="#book" class="btn btn-primary">See what you're missing &rarr;</a>
       </div>
     </div>
   </nav>
@@ -1031,7 +1061,7 @@
           every time, so the job is yours before a competitor even opens the email.
         </p>
         <div class="hero-ctas reveal" style="--reveal-delay: 180ms;">
-          <a href="#book" class="btn btn-primary">Book a call &rarr;</a>
+          <a href="#book" class="btn btn-primary">See what you're missing &rarr;</a>
           <a href="#system" class="btn btn-ghost">See how it works</a>
         </div>
         <p class="hero-note reveal" style="--reveal-delay: 240ms;">
@@ -1472,43 +1502,38 @@
   <section id="book" class="cta-section">
     <div class="container">
       <div class="cta-head reveal">
-        <span class="kicker">Early access</span>
-        <h2>Stop leaving money on the table while you're on the job.</h2>
+        <span class="kicker">Free lead audit</span>
+        <h2>Find out how many leads you're losing — for free.</h2>
         <p>
-          We're onboarding a small first group of HVAC shops. Get in early, lock founder pricing,
-          and build the system around how your trade actually runs.
+          In 15 minutes, we'll pull back the curtain on your lead flow and show you exactly where jobs
+          are slipping through — how fast you're responding, how many go cold, and what's falling
+          through the cracks. No pitch, no obligation. You'll leave the call knowing your numbers,
+          whether you work with us or not.
         </p>
       </div>
 
-      <div class="trust-grid" data-stagger>
-        <div class="card trust-card reveal">
+      <div class="trust-grid compact" data-stagger>
+        <div class="card trust-card compact reveal">
           <div class="icon-box">
-            <!-- people -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <!-- tag / price -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 12 22l-9-9V4a1 1 0 0 1 1-1h8l8.6 8.6a1.4 1.4 0 0 1 0 1.8z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg>
           </div>
-          <h3>Built in Colorado</h3>
-          <p>For local service owners who can't afford to miss a lead</p>
+          <p>100% free — no credit card, no commitment</p>
         </div>
-        <div class="card trust-card reveal">
-          <div class="icon-box">
-            <!-- shield -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>Priority onboarding</h3>
-          <p>Early clients get set up and supported first</p>
-        </div>
-        <div class="card trust-card reveal">
+        <div class="card trust-card compact reveal">
           <div class="icon-box">
             <!-- clock -->
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
           </div>
-          <h3>Limited spots</h3>
-          <p>We're capping the first cohort on purpose</p>
+          <p>15 minutes — we respect your time</p>
         </div>
-      </div>
-
-      <div class="cta-info-bar reveal">
-        <strong>Early access includes:</strong> priority onboarding, founder pricing, and a direct line to the team building it.
+        <div class="card trust-card compact reveal">
+          <div class="icon-box">
+            <!-- chart / data -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="20" x2="20" y2="20"/><line x1="7" y1="20" x2="7" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="17" y1="20" x2="17" y2="15"/></svg>
+          </div>
+          <p>Your numbers, your data — useful even if we never talk again</p>
+        </div>
       </div>
 
       <!-- ======================================================
@@ -1518,6 +1543,10 @@
            ====================================================== -->
       <div class="calendly-wrap reveal">
         <div class="calendly-inline-widget" data-url="https://calendly.com/fugi-amendr/15-minute-call" style="min-width:320px;height:700px;"></div>
+      </div>
+
+      <div class="cta-final-btn reveal">
+        <a href="#leadForm" class="btn btn-primary">Lock in founder pricing &rarr;</a>
       </div>
 
       <!-- ======================================================
