@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amendr — No lead gets left behind</title>
   <meta name="description" content="Amendr answers your leads in under 60 seconds, ranks them by urgency, follows up relentlessly, and books appointments — so no lead ever gets left behind.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b11116'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='38' font-weight='900' fill='%23fff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="amendr-icon.png">
+  <link rel="apple-touch-icon" href="amendr-icon.png">
+  <meta property="og:image" content="amendr-full-logo.png">
+  <meta name="twitter:image" content="amendr-full-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -234,14 +237,16 @@
       height: 72px;
     }
 
-    .wordmark {
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      color: var(--ink);
+    .brand {
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
     }
-    .wordmark .dot { color: var(--accent); }
+    .brand-logo {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
 
     .nav-links {
       display: flex;
@@ -926,8 +931,12 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.09);
     }
 
-    .footer .wordmark { color: #fff; font-size: 26px; }
-    .footer .wordmark .dot { color: #ff6b6b; }
+    .footer-logo {
+      height: 28px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+    }
     .footer-tagline {
       margin-top: 16px;
       font-size: 15px;
@@ -1033,7 +1042,9 @@
        ============================================================ -->
   <nav class="nav" id="nav">
     <div class="container nav-inner">
-      <a href="#" class="wordmark">Amendr<span class="dot">.</span></a>
+      <a href="/" class="brand">
+        <img src="amendr-full-logo.png" alt="Amendr" class="brand-logo" width="2048" height="1024">
+      </a>
       <div class="nav-links">
         <a href="#system">The system</a>
         <a href="#features">What you get</a>
@@ -1624,7 +1635,9 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="#" class="wordmark">Amendr<span class="dot">.</span></a>
+          <a href="/" class="brand">
+            <img src="amendr-wordmark.png" alt="Amendr" class="footer-logo" width="1024" height="512">
+          </a>
           <p class="footer-tagline">The system that owns the middle of your funnel — so no lead ever gets left behind.</p>
         </div>
         <div class="footer-col">
