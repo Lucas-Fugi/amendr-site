@@ -10,6 +10,76 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+  <!-- ============================================================
+       FAQ STRUCTURED DATA
+       Mirrors the visible #faq section. If you edit an answer there,
+       edit it here too — Google requires the schema to match the page.
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How fast does Amendr actually answer a new lead?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Under 60 seconds, by text and email, every time — nights, weekends, and while you're up on a roof with your phone in the truck. The average business takes 47 hours to answer a new lead, and 78% of customers hire whoever gets back to them first. That first minute is usually the whole job."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Amendr rank leads by urgency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every lead gets read for the signals that matter in your trade — no heat in January versus a quote for next spring, a full system replacement versus a filter question, whether they left a real phone number, whether they're asking how soon you can get out there. Ready-to-buy jobs rise to the top of your list and tire-kickers sink, so the first callback you make is the one worth the most."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does Amendr cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A one-time setup fee plus a monthly retainer. Early access clients lock in founder pricing and keep it. Book a 15-minute call and we'll walk through current pricing next to what your missed leads are already costing you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I have to change how I already run things?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Amendr sits on top of what you already have — your site, your ads, your listings, your calendar. Nothing gets ripped out and there's no new system for you or your techs to learn. Leads come in exactly the way they do today. They just stop going unanswered."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will my customers know it isn't me texting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Amendr answers on behalf of your business — your name, your tone, none of that call-center script feeling. What the customer experiences is a shop that actually gets back to people. When the conversation reaches the part that closes the job, that's you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens after a lead replies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The conversation keeps moving. Amendr handles the usual back-and-forth, keeps following up with the ones who go quiet instead of letting them drift, and puts qualified leads straight onto your calendar. You show up to a warm customer who's ready to talk — not a phone number on a sticky note."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this only for HVAC companies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HVAC is where we started and where it's sharpest — emergency calls, seasonal spikes, and tickets big enough that one missed lead genuinely hurts. It works for any service business that sells booked appointments, but early access is going to HVAC shops first."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     /* ============================================================
        DESIGN TOKENS
@@ -546,6 +616,84 @@
     }
 
     /* ============================================================
+       FAQ
+       ============================================================ */
+    .faq-list {
+      display: grid;
+      gap: 14px;
+      max-width: 880px;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .faq-item[open] {
+      border-color: var(--line-strong);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 24px 28px;
+      cursor: pointer;
+      list-style: none;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--ink);
+      transition: color 0.15s ease;
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q:hover { color: var(--accent); }
+    .faq-q:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -3px;
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--rose);
+      border: 1px solid var(--rose-border);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
+    }
+    .faq-icon svg { width: 14px; height: 14px; }
+    .faq-item[open] .faq-icon { transform: rotate(180deg); }
+
+    .faq-a {
+      padding: 0 28px 26px;
+      max-width: 700px;
+      font-size: 16.5px;
+    }
+
+    .faq-foot {
+      margin-top: 30px;
+      font-size: 15.5px;
+      color: var(--faint);
+    }
+    .faq-foot a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .faq-foot a:hover { text-decoration: underline; }
+
+    /* ============================================================
        FINAL CTA
        ============================================================ */
     .cta-section {
@@ -810,6 +958,7 @@
       .card, .btn { transition: none; }
       .card:hover { transform: none; }
       .btn-primary:hover, .btn-ghost:hover { transform: none; }
+      .faq-item, .faq-icon { transition: none; }
     }
 
     /* ============================================================
@@ -840,6 +989,9 @@
       .form-row { grid-template-columns: 1fr; gap: 0; }
       .lead-form { padding: 30px 22px; }
 
+      .faq-q { padding: 20px 22px; font-size: 16.5px; gap: 16px; }
+      .faq-a { padding: 0 22px 22px; font-size: 16px; }
+
       .hero-ctas .btn { width: 100%; }
     }
   </style>
@@ -856,6 +1008,7 @@
         <a href="#system">The system</a>
         <a href="#features">What you get</a>
         <a href="#proof">The numbers</a>
+        <a href="#faq">FAQ</a>
         <a href="#book" class="btn btn-primary">Book a call &rarr;</a>
       </div>
     </div>
@@ -1186,6 +1339,134 @@
   </section>
 
   <!-- ============================================================
+       FAQ
+       Keep these answers in sync with the FAQPage JSON-LD in <head>.
+       ============================================================ -->
+  <section id="faq" class="section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Straight answers</span>
+        <h2>The questions owners actually ask.</h2>
+        <p>
+          No pitch deck version. Here's how it works, what it costs, and what changes on your end —
+          which is less than you'd think.
+        </p>
+      </div>
+
+      <div class="faq-list" data-stagger>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            How fast does Amendr actually answer a new lead?
+            <span class="faq-icon">
+              <!-- chevron down -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 12 16 19 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            Under 60 seconds, by text and email, every time — nights, weekends, and while you're up on a
+            roof with your phone in the truck. The average business takes <strong>47 hours</strong> to
+            answer a new lead, and <strong>78% of customers hire whoever gets back to them first</strong>.
+            That first minute is usually the whole job.
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            How does Amendr rank leads by urgency?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 12 16 19 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            Every lead gets read for the signals that matter in your trade — no heat in January versus a
+            quote for next spring, a full system replacement versus a filter question, whether they left a
+            real phone number, whether they're asking how soon you can get out there. Ready-to-buy jobs
+            rise to the top of your list and tire-kickers sink, so the first callback you make is the one
+            worth the most.
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            What does Amendr cost?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 12 16 19 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            A one-time setup fee plus a monthly retainer. Early access clients lock in founder pricing and
+            keep it. Book a 15-minute call and we'll walk through current pricing next to what your missed
+            leads are already costing you.
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            Do I have to change how I already run things?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 12 16 19 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            No. Amendr sits on top of what you already have — your site, your ads, your listings, your
+            calendar. Nothing gets ripped out and there's no new system for you or your techs to learn.
+            Leads come in exactly the way they do today. They just stop going unanswered.
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            Will my customers know it isn't me texting?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 12 16 19 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            Amendr answers on behalf of your business — your name, your tone, none of that call-center
+            script feeling. What the customer experiences is a shop that actually gets back to people.
+            When the conversation reaches the part that closes the job, that's you.
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            What happens after a lead replies?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 12 16 19 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            The conversation keeps moving. Amendr handles the usual back-and-forth, keeps following up
+            with the ones who go quiet instead of letting them drift, and puts qualified leads straight
+            onto your calendar. You show up to a warm customer who's ready to talk — not a phone number
+            on a sticky note.
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">
+            Is this only for HVAC companies?
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 12 16 19 9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-a">
+            HVAC is where we started and where it's sharpest — emergency calls, seasonal spikes, and
+            tickets big enough that one missed lead genuinely hurts. It works for any service business
+            that sells booked appointments, but early access is going to HVAC shops first.
+          </div>
+        </details>
+
+      </div>
+
+      <p class="faq-foot reveal">
+        Still have a question? <a href="#book">Book a 15-minute call</a> and ask it directly.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
        FINAL CTA
        ============================================================ -->
   <section id="book" class="cta-section">
@@ -1322,6 +1603,7 @@
           <a href="#system">The system</a>
           <a href="#features">What it does</a>
           <a href="#proof">The numbers</a>
+          <a href="#faq">FAQ</a>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
