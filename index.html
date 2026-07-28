@@ -5,16 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amendr — No lead gets left behind</title>
   <meta name="description" content="Amendr answers your leads in under 60 seconds, ranks them by urgency, follows up relentlessly, and books appointments — so no lead ever gets left behind.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://amendr.com/">
+  <link rel="alternate" hreflang="en" href="https://amendr.com/">
   <link rel="icon" type="image/png" href="amendr-icon.png">
   <link rel="apple-touch-icon" href="amendr-icon.png">
-  <meta property="og:image" content="amendr-full-logo.png">
-  <meta name="twitter:image" content="amendr-full-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Amendr">
+  <meta property="og:title" content="Amendr — No lead gets left behind">
+  <meta property="og:description" content="Amendr answers your leads in under 60 seconds, ranks them by urgency, follows up relentlessly, and books appointments — so no lead ever gets left behind.">
+  <meta property="og:url" content="https://amendr.com/">
+  <meta property="og:image" content="https://amendr.com/amendr-full-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Amendr — No lead gets left behind">
+  <meta name="twitter:description" content="Amendr answers your leads in under 60 seconds, ranks them by urgency, follows up relentlessly, and books appointments.">
+  <meta name="twitter:image" content="https://amendr.com/amendr-full-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- ============================================================
-       FAQ STRUCTURED DATA
+       FAQ STRUCTURED DATA (schema.org @type: FAQPage)
        Mirrors the visible #faq section. If you edit an answer there,
        edit it here too — Google requires the schema to match the page.
        ============================================================ -->
@@ -78,6 +89,109 @@
           "@type": "Answer",
           "text": "HVAC is where we started and where it's sharpest — emergency calls, seasonal spikes, and tickets big enough that one missed lead genuinely hurts. It works for any service business that sells booked appointments, but early access is going to HVAC shops first."
         }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ============================================================
+       SERVICE STRUCTURED DATA (schema.org @type: Service)
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Lead Response Management",
+    "provider": {
+      "@type": "Organization",
+      "name": "Amendr",
+      "url": "https://amendr.com"
+    },
+    "description": "Done-for-you lead response service that answers every lead in under 60 seconds, ranks by urgency, follows up automatically, and books appointments.",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Amendr Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Instant Lead Response",
+            "description": "Every lead answered in under 60 seconds by text and email, 24/7."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Lead Qualification and Ranking",
+            "description": "Each lead scored by urgency so hot leads get prioritized and tire-kickers don't waste your time."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Automated Lead Follow-Up",
+            "description": "Multi-touch follow-up sequences that keep working leads until they book or decline."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Appointment Booking",
+            "description": "Qualified leads book directly onto your calendar with no back-and-forth."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Free Lead Audit",
+            "description": "A free 15-minute review showing where your leads are going and how fast you are responding."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- ============================================================
+       WEBSITE STRUCTURED DATA (schema.org @type: WebSite)
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Amendr",
+    "url": "https://amendr.com",
+    "description": "Done-for-you lead response service for service businesses. No lead left behind.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://amendr.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- ============================================================
+       BREADCRUMB STRUCTURED DATA (schema.org @type: BreadcrumbList)
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://amendr.com/"
       }
     ]
   }

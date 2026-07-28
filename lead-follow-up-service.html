@@ -7,6 +7,7 @@
   <meta name="description" content="80% of sales need 5+ follow-ups but 44% of contractors quit after one. Amendr follows up automatically until every lead books or says no.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://amendr.com/lead-follow-up-service.html">
+  <link rel="alternate" hreflang="en" href="https://amendr.com/lead-follow-up-service.html">
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Amendr">
@@ -26,7 +27,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- ============================================================
-       FAQ STRUCTURED DATA
+       FAQ STRUCTURED DATA (schema.org @type: FAQPage)
        Mirrors the visible FAQ section below. If you edit an answer
        there, edit it here too — Google requires the two to match.
        ============================================================ -->
@@ -67,6 +68,37 @@
           "text": "Yes, and the difference comes down to two things: whether the messages were written for your trade and your voice, and whether the sequence stops the moment a real person replies. Generic mass-blasted templates are what make automation obvious. Messages that mention the customer's actual situation, arrive at sensible hours, and hand off to a human at the right moment read exactly like a business that stays on top of its work."
         }
       }
+    ]
+  }
+  </script>
+
+  <!-- ============================================================
+       ARTICLE STRUCTURED DATA (schema.org @type: Article)
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "80% of Contractor Leads Need Follow-Up. Most Never Get It.",
+    "author": {"@type": "Organization", "name": "Amendr"},
+    "publisher": {"@type": "Organization", "name": "Amendr", "logo": {"@type": "ImageObject", "url": "https://amendr.com/amendr-full-logo.png"}},
+    "datePublished": "2026-07-27",
+    "dateModified": "2026-07-27",
+    "mainEntityOfPage": "https://amendr.com/lead-follow-up-service.html",
+    "description": "80% of sales require 5 or more follow-ups but 44% of businesses quit after one. How to fix the follow-up gap."
+  }
+  </script>
+
+  <!-- ============================================================
+       BREADCRUMB STRUCTURED DATA (schema.org @type: BreadcrumbList)
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://amendr.com/"},
+      {"@type": "ListItem", "position": 2, "name": "80% of Contractor Leads Need Follow-Up. Most Never Get It.", "item": "https://amendr.com/lead-follow-up-service.html"}
     ]
   }
   </script>
@@ -208,13 +240,13 @@
       line-height: 1.5;
     }
     .crumb {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--faint);
       margin-bottom: 20px;
     }
-    .crumb a { color: var(--faint); text-decoration: none; }
-    .crumb a:hover { color: var(--accent); }
+    .crumb a { color: var(--accent); text-decoration: none; }
+    .crumb a:hover { color: var(--accent-hover); }
 
     /* ============================================================
        ARTICLE BODY
@@ -429,6 +461,35 @@
     .cta-note { margin-top: 22px; font-size: 14.5px; color: var(--faint); }
 
     /* ============================================================
+       RELATED READING
+       ============================================================ */
+    .related-wrap { padding: 72px 0 88px; }
+    .related-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 30px 32px;
+    }
+    .related-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 16px;
+    }
+    .related-card ul { list-style: none; display: grid; gap: 12px; }
+    .related-card a {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 16.5px;
+      text-decoration: none;
+      border-bottom: 1px solid var(--rose-border);
+    }
+    .related-card a:hover { border-bottom-color: var(--accent); }
+
+    /* ============================================================
        FOOTER
        ============================================================ */
     .footer { background: var(--ink); color: #9b9ea4; padding: 72px 0 36px; }
@@ -532,7 +593,7 @@
        ============================================================ -->
   <header class="page-hero">
     <div class="container narrow">
-      <p class="crumb reveal"><a href="/">Amendr</a> &rsaquo; Lead follow-up for contractors</p>
+      <nav class="crumb reveal" aria-label="Breadcrumb"><a href="/">Home</a> / 80% of Contractor Leads Need Follow-Up. Most Never Get It.</nav>
       <h1 class="reveal" style="--reveal-delay: 60ms;">80% of contractor leads need follow-up. Most never get it.</h1>
       <p class="standfirst reveal" style="--reveal-delay: 120ms;">
         The deals you think you lost mostly aren't lost. They're sitting in a text thread nobody
@@ -829,6 +890,22 @@
       </p>
       <a href="/#book" class="btn btn-primary reveal" style="--reveal-delay: 180ms;">See what you're missing &rarr;</a>
       <p class="cta-note reveal" style="--reveal-delay: 240ms;">No software to install. Nothing changes about how you run jobs.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RELATED READING
+       ============================================================ -->
+  <section class="related-wrap">
+    <div class="container narrow">
+      <div class="related-card reveal">
+        <p class="related-title">Related reading</p>
+        <ul>
+          <li><a href="/hvac-lead-response.html">Why HVAC companies lose jobs to slow callbacks</a></li>
+          <li><a href="/stop-losing-leads.html">You&rsquo;re paying for leads. Here&rsquo;s where they&rsquo;re going.</a></li>
+          <li><a href="/#book">See what you&rsquo;re missing &rarr;</a></li>
+        </ul>
+      </div>
     </div>
   </section>
 
